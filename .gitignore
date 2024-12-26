@@ -1,0 +1,14 @@
+# dependencies
+node_modules/
+
+# production
+build
+dist
+lib
+types
+*.tsbuildinfo
+cache
+kameleoonSDK-*.js
+
+# test
+tests/exampleTest.spec.ts

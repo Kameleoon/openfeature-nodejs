@@ -1,0 +1,58 @@
+{
+  "name": "@kameleoon/openfeature-server",
+  "version": "0.0.1",
+  "description": "Kameleoon OpenFeature NodeJS SDK server",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "clean": "rimraf dist && rimraf tsconfig.tsbuildinfo",
+    "dev": "npm run clean && tsc -w -p tsconfig.watch.json",
+    "build": "npm run clean && npm run build:types && npm run build:js",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build:js": "babel src --out-dir dist --extensions \".ts,.tsx\" --source-maps true",
+    "deploy": "/bin/bash ../../scripts/deploy.sh openfeature-server",
+    "update-changelog": "/bin/bash ../../scripts/update_changelog.sh openfeature-server",
+    "symlink": "yarn link",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "lint": "eslint -c ../../eslint.config.js 'dist/**/*.js'"
+  },
+  "homepage": "https://github.com/Kameleoon/openfeature-nodejs/blob/main/README.md",
+  "publishConfig": {
+    "access": "public",
+    "cache": "cache/.npm"
+  },
+  "keywords": [
+    "kameleoon",
+    "nodejs",
+    "sdk",
+    "nodejs sdk"
+  ],
+  "license": "ISC",
+  "peerDependencies": {
+    "@kameleoon/openfeature-core": "^0.0.1",
+    "@openfeature/server-sdk": "^1.17.0"
+  },
+  "dependencies": {
+    "@kameleoon/nodejs-sdk": "^5.2.3",
+    "@kameleoon/nodejs-event-source": "^1.1.0",
+    "@kameleoon/nodejs-requester": "^1.2.0",
+    "@kameleoon/nodejs-visitor-code-manager": "^1.1.0"
+  },
+  "devDependencies": {
+    "@openfeature/server-sdk": "^1.17.0",
+    "@types/node-fetch": "^2.6.4",
+    "jest": "^29.5.0",
+    "jest-environment-node": "^29.5.0",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^29.0.5",
+    "typescript": "^4.4.4"
+  },
+  "commitlint": {
+    "extends": "@commitlint/config-conventional"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "target": "es6",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "baseUrl": ".",
+    "paths": {
+      "src/*": ["./src/*"],
+      "tests/*": ["./tests/*"]
+    },
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "composite": true,
+    "downlevelIteration": true
+  },
+  "exclude": ["node_modules", "dist", "./tests/**/*"],
+  "include": ["./src/**/*"]
+}
